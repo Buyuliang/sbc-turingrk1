@@ -32,15 +32,15 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
+          username: buyuliang
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push sbc turingrk1 overlay image
         run: make
         env:
           PUSH: '1'
-          USERNAME: ${{ github.actor }}
+          USERNAME: buyuliang
           PLATFORM: linux/arm64,linux/amd64
           PROGRESS: plain
-          CI_ARGS: "--cache-from=ghcr.io/${{ github.actor }}/sbc-turingrk1:cache --cache-to=ghcr.io/${{ github.actor }}/sbc-turingrk1:cache"
+          CI_ARGS: "--cache-from=ghcr.io/buyuliang/sbc-turingrk1:cache --cache-to=ghcr.io/buyuliang/sbc-turingrk1:cache"
 
